@@ -1,0 +1,27 @@
+{
+	"builders": [{
+		"type": "azure-arm",
+        "client_id": "{{user `client_id`}}",
+        "client_secret": "{{user `client_secret`}}",
+        "subscription_id": "{{user `subscription_id`}}",
+        "os_type": "Linux",
+        "image_publisher": "canonical",
+        "image_offer": "0001-com-ubuntu-server-jammy",
+        "image_sku": "22_04-lts",
+        "managed_image_resource_group_name": "{{user `resource_group`}}",
+        "managed_image_name": "{{user `image_name_prefix`}}-image",
+        "location": "{{user `location`}}",
+        "vm_size": "Standard_D2s_v3",
+        "azure_tags": {
+            "Environment": "dev"
+            }
+        }],
+	"provisioners": [{
+		"inline": [
+			"echo 'Hello, World!' > index.html",
+			"nohup busybox httpd -f -p 80 &"
+		],
+		"inline_shebang": "/bin/sh -x",
+		"type": "shell"
+	}]
+}
