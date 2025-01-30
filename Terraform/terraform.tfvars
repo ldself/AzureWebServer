@@ -1,4 +1,4 @@
-subscription_id = "d6c8f7f9-b69d-4549-b504-b520b7a8ed88"
+subscription_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 resource_group_name = "Azuredevops"
 environment_tag = "dev"
 vm_size = "Standard_D2s_v3"
